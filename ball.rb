@@ -6,7 +6,7 @@ class Ball
 		@x = Pong::WIDTH/2
 		@y = Pong::HEIGHT/2
 		@speed = 5
-		@angle = 45
+		@angle = 135
 	end
 
 	def x1; @x - SIZE/2; end
@@ -21,7 +21,7 @@ class Ball
 			x1, y2, color,
 			x2, y2, color,
 			x2, y1, color,
-			)
+		)
 	end
 
 	def move!
@@ -30,5 +30,15 @@ class Ball
 
 		@x += dx
 		@y += dy
+
+		if @y < 0
+			@y = 0 
+			@angle = Gosu.angle(0,0,dx,-dy)
+		end
+
+		if @y > Pong::HEIGHT
+			@y = Pong::HEIGHT
+			@angle = Gosu.angle(0,0,dx,-dy)
+		end
 	end
 end
