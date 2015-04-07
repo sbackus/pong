@@ -16,7 +16,7 @@ class Pong < Hasu::Window
   end
 
   def update
-    
+    @ball.move!
   end
 
   def draw
