@@ -44,6 +44,14 @@ class Ball
 		end
 	end
 
+	def off_left?
+		@x < 0
+	end
+
+	def off_right?
+		@x > Pong::WIDTH
+	end
+
 	def bounce_off_edge
 		@angle = Gosu.angle(0,0,dx,-dy)
 	end
