@@ -2,6 +2,7 @@ require 'rubygems'
 require 'Hasu'
 
 Hasu.load "ball.rb"
+Hasu.load "paddle.rb"
 
 class Pong < Hasu::Window
   WIDTH = 640
@@ -18,6 +19,8 @@ class Pong < Hasu::Window
     @right_score = 0
 
     @font = Gosu::Font.new(self, "Ariel", 30)
+    @left_paddle = Paddle.new(:left)
+    @right_paddle = Paddle.new(:right)
   end
 
   def update
@@ -39,8 +42,11 @@ class Pong < Hasu::Window
 
     @font.draw(@left_score, 30, 30 , 0, )
     @font.draw(@right_score, WIDTH-50, 30, 0)
-  end
 
+    @left_paddle.draw(self)
+    @right_paddle.draw(self)
+  end
+ 
   def button_down(id)
 
   end
