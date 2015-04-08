@@ -12,11 +12,11 @@ class Paddle
 	end
 
 	def up!
-		@y -= SPEED
+		unless y1 < 0; @y -= SPEED; end
 	end
 
 	def down!
-		@y += SPEED
+		unless y2 > Pong::HEIGHT; @y += SPEED; end
 	end
 
 	def x1
